@@ -1,5 +1,7 @@
 # Compiz Web
 
+<video src="assets/compiz-demo.webm" autoplay loop muted playsinline></video>
+
 Shader-driven page transitions inspired by Compiz, the Linux window manager that made every desktop interaction a visual spectacle.
 
 Each page navigation runs a WebGL fragment shader that reads both the old and new page as live textures via the `texElementImage2D()` API, then composites them through the selected effect.
