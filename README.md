@@ -1,6 +1,6 @@
 # Compiz Web
 
-<video src="assets/compiz-demo.webm" autoplay loop muted playsinline></video>
+[compiz-web.webm](https://github.com/user-attachments/assets/6f86736e-de8c-43b0-9dea-3459060983ee)
 
 Shader-driven web page transitions inspired by Compiz, the Linux window manager.
 
