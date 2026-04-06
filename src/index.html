@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compiz Web</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="scene" layoutsubtree></canvas>
+    <nav id="nav">
+      <div class="nav-inner">
+        <a href="/" class="nav-logo">Compiz Web</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/about">About</a>
+        </div>
+        <div class="nav-transition">
+          <label for="transition-select">Effect:</label>
+          <select id="transition-select">
+            <option value="dissolve">Dissolve</option>
+            <option value="burn">Burn</option>
+            <option value="cube">Cube</option>
+            <option value="wobbly">Wobbly</option>
+            <option value="genie">Genie</option>
+            <option value="magnetic">Magnetic</option>
+            <option value="random">Random</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

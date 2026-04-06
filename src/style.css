@@ -1,0 +1,222 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --nav-height: 56px;
+  --bg: #0a0a0f;
+  --surface: #14141f;
+  --text: #e8e8f0;
+  --text-muted: #8888a0;
+  --accent-home: #6366f1;
+  --accent-about: #ec4899;
+  --accent-work: #f59e0b;
+  --accent-contact: #10b981;
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Canvas fills the viewport, sits behind nav */
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Pages are children of the canvas via layoutsubtree.
+   They are laid out but not painted by the browser —
+   the WebGL compositor draws them as textures. */
+#scene > .page {
+  position: absolute;
+  top: var(--nav-height);
+  left: 0;
+  width: 100%;
+  height: calc(100% - var(--nav-height));
+  overflow-y: auto;
+  background: var(--bg);
+}
+
+/* Nav floats above the canvas */
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-height);
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 32px;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-links a.active {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-transition {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.nav-transition select {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Page content styling */
+.page-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 24px;
+}
+
+.page-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.page-content p {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.page-content .accent-line {
+  width: 64px;
+  height: 4px;
+  border-radius: 2px;
+  margin-bottom: 32px;
+}
+
+/* Footer */
+.page-footer {
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.page-footer a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-inner {
+    padding: 0 16px;
+    gap: 16px;
+  }
+
+  .nav-logo {
+    font-size: 16px;
+  }
+
+  .nav-transition label {
+    display: none;
+  }
+
+  .page-content {
+    padding: 48px 20px;
+  }
+
+  .page-content h1 {
+    font-size: 32px;
+  }
+
+  .page-content p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .nav-links a {
+    padding: 6px 8px;
+    font-size: 13px;
+  }
+
+  .page-content {
+    padding: 32px 16px;
+  }
+
+  .page-content h1 {
+    font-size: 28px;
+  }
+}
