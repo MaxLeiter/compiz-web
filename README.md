@@ -2,18 +2,9 @@
 
 <video src="assets/compiz-demo.webm" autoplay loop muted playsinline></video>
 
-Shader-driven page transitions inspired by Compiz, the Linux window manager that made every desktop interaction a visual spectacle.
+Shader-driven web page transitions inspired by Compiz, the Linux window manager.
 
 Each page navigation runs a WebGL fragment shader that reads both the old and new page as live textures via the `texElementImage2D()` API, then composites them through the selected effect.
-
-## Effects
-
-- **Dissolve** - Simplex noise threshold sweep with a glowing edge
-- **Burn** - FBM fire simulation with smoke, embers, and heat distortion
-- **Cube** - 3D cube rotation via ray-casting with perspective camera pullback
-- **Wobbly** - Spring-physics ripple wave with chromatic aberration
-- **Genie** - Page squeezes into a point (like the Compiz minimize effect)
-- **Magnetic** - Pixels scatter toward click point, then reassemble as the new page
 
 ## Requirements
 
